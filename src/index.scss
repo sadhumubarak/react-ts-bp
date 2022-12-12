@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+.App {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+.hideModernToast {
+    display: none;
+}
+
+.modernToast {
+    position: fixed;
+    top:10px;
+    right:10px;
+
+    .modernToastCard {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 8px;
+        box-shadow: 0 0 12px #dfdfdf;
+        max-height: 57px;
+        height: 57px;
+
+        width: max-content;
+        max-width: max-content;
+    }
+
+    .modernToast-container {
+        padding: 0px 0px 0px 10px;
+        position: relative;
+
+        .toastbox--main {
+            display: flex;
+
+            .toast--icon {
+                // background-color: yellow;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0 6px;
+
+                img {
+                    height: 25px;
+                    width: 25px;
+                }
+            }
+
+            .toast--text {
+                padding-left: 8px;
+
+                .toast--title {
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+
+                .toast--message {
+                    font-size: 12px;
+                    color: #a3a3a3;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+
+            .toast--button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px;
+
+                .toastbutton {
+                    position: absolute;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    right: .3em;
+                    top: .1em;
+                    float: right;
+                    outline: none;
+
+                    .icon-close {
+                        height: 10px !important;
+                        width: 10px !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .toast-line::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: '';
+        width: 4px;
+        height: 100%;
+        border-radius: 10px;
+    }
+
+}
+
+.toast-success {
+    .toast-line::before {
+        background-color: #47a879;
+    }
+}
+
+.toast-error {
+    .toast-line::before {
+        background-color: #EA4F36;
+    }
+}
+
+.toast-warn {
+    .toast-line::before {
+        background-color: #f0a93d;
+    }
+}
+
+.toast-info {
+    .toast-line::before {
+        background-color: #017ac1;
+    }
+}
+
+.top-right {
+    top: 12px;
+    right: 12px;
+    transition: transform .3s ease-in-out;
+    animation: toast-in-right .4s;
+}
+
+.bottom-right {
+    bottom: 12px;
+    right: 12px;
+    transition: transform .3s ease-in-out;
+    animation: toast-in-right .4s;
+}
+
+.top-left {
+    top: 12px;
+    left: 12px;
+    transition: transform .3s ease-in;
+    animation: toast-in-left .4s;
+}
+
+.bottom-left {
+    bottom: 12px;
+    left: 12px;
+    transition: transform .3s ease-in;
+    animation: toast-in-left .4s;
+}
+
+@keyframes toast-in-right {
+    from {
+        transform: translateX(100%);
+
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes toast-in-left {
+    from {
+        transform: translateX(-100%);
+
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+// info:#017ac1
+// erro:#EA4F36;
+// warning: #f0a93d
+// success:#47a879
